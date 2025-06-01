@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "Quản lý sân bóng";
+    ViewData["ActiveNav"] = "QuanLySanBong"; // Đặt active nav item
+    Layout = "_Layout"; // Sử dụng layout chung
+}
+
+<link rel="stylesheet" href="~/css/datsan4.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="left-panel">
+        <h3>Thông tin</h3>
+        <div class="form-group">
+            <label for="field-name">Tên sân bóng</label>
+            <input type="text" id="field-name" placeholder="Nhập tên sân...">
+        </div>
+        <div class="form-group">
+            <label for="field-type">Loại sân bóng</label>
+            <input type="text" id="field-type" placeholder="Loại sân bóng...">
+        </div>
+        <div class="form-group status-radios">
+            <label>Trạng thái:</label>
+            <input type="radio" id="status-normal" name="field-status" value="Bình thường" checked>
+            <label for="status-normal">Bình thường</label>
+            <input type="radio" id="status-repair" name="field-status" value="Sửa chữa">
+            <label for="status-repair">Sửa chữa</label>
+        </div>
+        <button class="save-button">Lưu</button>
+    </div>
+
+    <div class="right-panel">
+        <h3>Danh sách sân</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Loại sân</th>
+                    <th>Giá</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Dữ liệu từ Model sẽ được hiển thị ở đây *@
+                <tr>
+                    <td>1</td>
+                    <td>Sân 1</td>
+                    <td>Sân 5</td>
+                    <td>250.000₫</td>
+                    <td>Bình thường</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Sân 2</td>
+                    <td>Sân 7</td>
+                    <td>500.000₫</td>
+                    <td>Bình thường</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sân 3</td>
+                    <td>Sân 5</td>
+                    <td>250.000₫</td>
+                    <td>Bình thường</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

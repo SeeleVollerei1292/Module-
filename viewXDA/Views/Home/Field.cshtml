@@ -1,0 +1,149 @@
+﻿@model List<FieldModel>
+@{
+    ViewData["Title"] = "Danh sách sân bóng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+<div class="container mt-5">
+    <h4 class="fw-bold">Danh sách sân bóng</h4>
+    <p class="text-muted">Sân tập được người chơi đánh giá cao</p>
+
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            @{
+                var totalItems = Model.Count;
+                var itemsPerSlide = 9;
+
+                for (int i = 0; i < totalItems; i += itemsPerSlide)
+                {
+                    <div class="swiper-slide">
+                        <div class="container">
+                            @for (int row = 0; row < 3; row++)
+                            {
+                                <div class="row mb-4">
+                                    @for (int col = 0; col < 3; col++)
+                                    {
+                                        int index = i + row * 3 + col;
+                                        if (index < totalItems)
+                                        {
+                                            var field = Model[index];
+                                            <div class="col-md-4">
+                                                <div class="card shadow-sm h-100">
+                                                    <div class="d-flex">
+                                       
+                                                        <div style="position: relative; width: 150px; height: 140px;">
+                                                            <img src="@field.ImageUrl" alt="@field.Name"
+                                                                 style="width: 100%; height: 100%; object-fit: cover;" class="rounded-start" />
+                                                            <div style="
+                                          position: absolute;
+                                        bottom: 0;
+                                        width: 100%;
+                                        background: rgba(0, 0, 0, 0.6);
+                                        color: white;
+                                        text-align: center;
+                                        font-size: 0.75rem;
+                                        padding: 2px 0;">
+                                                                Sân bóng đá
+                                                            </div>
+                                                        </div>
+
+                                                     
+                                                        <div class="card-body py-2 ps-3">
+                                                            <p class="text mb-1">
+                                                                <i class="fa-solid fa-location-dot" style="color: #fc7373;"></i> @field.District
+                                                            </p>
+                                                            <h6 class="card-title fw-bold">@field.Name</h6>
+                                                            <p class="text-muted mb-1">Cách: @field.Distance ⭐ @field.Rating</p>
+                                                            <p class="text-muted mb-0">Mở cửa: @field.OpenHours</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        }
+                                    }
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+         
+      
+                <div class="swiper-button-prev custom-swiper-button  ">
+           
+                </div>
+                <div class="swiper-button-next custom-swiper-button">
+           
+                </div>
+        <div class="swiper-pagination"></div>
+
+        </div>
+   
+</div>
+<style>
+    .swiper-pagination {
+        position: relative !important;
+        margin-top: 1rem; /* giống mt-5 */
+        text-align: center;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        background-color: white; /* nền trắng */
+        border-radius: 50%; /* bo tròn thành hình tròn */
+        width: 20px; /* kích thước nút, bạn có thể thay đổi */
+        height: 20px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1); 
+        border: 1px solid #ddd; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+   
+    }
+
+
+    .swiper-button-prev {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20320%20512'%3E%3Cpath%20d='M9.4%20233.4c-12.5%2012.5-12.5%2032.8%200%2045.3l192%20192c12.5%2012.5%2032.8%2012.5%2045.3%200s12.5-32.8%200-45.3L77.3%20256%20246.6%2086.6c12.5-12.5%2012.5-32.8%200-45.3s-32.8-12.5-45.3%200l-192%20192z'%2F%3E%3C%2Fsvg%3E");
+        transform: translateX(-10px);
+
+    }
+
+    .swiper-button-next {
+        background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20320%20512%22%3E%3Cpath%20d%3D%22M310.6%20233.4c12.5%2012.5%2012.5%2032.8%200%2045.3l-192%20192c-12.5%2012.5-32.8%2012.5-45.3%200s-12.5-32.8%200-45.3L242.7%20256%2073.4%2086.6c-12.5-12.5-12.5-32.8%200-45.3s32.8-12.5%2045.3%200l192%20192z%22/%3E%3C/svg%3E") !important;
+        transform: translateX(10px);
+    }
+
+
+        .swiper-button-next::after {
+            display: none;
+        }
+
+    .swiper-button-prev::after {
+        display: none;
+    }
+
+   
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        loop: true,
+
+    });
+</script>

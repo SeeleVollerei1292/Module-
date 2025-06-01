@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Quản lý đồ cho thuê";
+    ViewData["ActiveNav"] = "QuanLyDoChoThue"; // Đặt active nav item
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/datsan5.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="left-panel">
+        <h3>Thông tin</h3>
+        <div class="form-group">
+            <label for="rental-name">Tên đồ cho thuê</label>
+            <input type="text" id="rental-name" placeholder="Tên đồ cho thuê...">
+        </div>
+        <div class="form-group">
+            <label for="address">Địa chỉ</label>
+            <input type="text" id="address" value="6d">
+        </div>
+        <div class="form-group">
+            <label for="price">Đơn giá</label>
+            <input type="number" id="price" value="0">
+        </div>
+        <button class="save-button">Lưu</button>
+    </div>
+
+    <div class="right-panel">
+        <h3>Danh sách đồ cho thuê</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Trạng thái</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Dữ liệu từ Model sẽ được hiển thị ở đây *@
+                <tr>
+                    <td>1</td>
+                    <td>Áo đội xanh / đỏ</td>
+                    <td>15.000₫</td>
+                    <td>30</td>
+                    <td>Đang kinh doanh</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bóng đá</td>
+                    <td>11.000₫</td>
+                    <td>30</td>
+                    <td>Đang kinh doanh</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Giày đá</td>
+                    <td>250.000₫</td>
+                    <td>30</td>
+                    <td>Đang kinh doanh</td>
+                    <td class="actions">
+                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-trash-alt"></i>
+                        <i class="fas fa-bars"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
