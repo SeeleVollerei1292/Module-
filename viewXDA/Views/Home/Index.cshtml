@@ -1,8 +1,103 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<div class="banner">
+    <img src="~/img/banner.jpg" class="img-fluid w-100" alt="Banner thể thao">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
+
+<!-- Section: Đặt sân -->
+<section class="text-left my-5 mx-3 p-4 bg-white shadow rounded">
+    <h2 class="fw-bold">Đặt sân thể thao ngay</h2>
+    <p>Tìm kiếm sân chơi thể thao, thi đấu khắp cả nước</p>
+</section>
+
+<!-- Ưu đãi -->
+<section class="container my-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-left">
+                <h2 class="fw-bold">Ưu đãi</h2>
+                <p>Khuyến mãi, giảm giá và ưu đãi đặc biệt dành riêng cho bạn</p>
+            </div>
+            <img src="~/img/data.jpg" class="img-fluid w-90 " alt="Ưu đãi">
+            <div class="text-center mt-3">
+                <a href="#" class="btn btn-primary">Đặt sân ngay</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .banner img {
+        height: 300px; /* Bạn có thể chỉnh thấp hơn như 300px nếu muốn */
+        object-fit: cover; /* Giúp ảnh không bị méo khi bị thu gọn */
+    }
+
+    .row img {
+        height: 150px;
+        width: 1200px;
+        object-fit: cover;
+    }
+
+    .text-left {
+        text-align: left;
+    }
+
+        .text-left h2, .text-center p {
+            color: #08437f;
+        }
+    /* Màu xanh dương giống logo */
+    .btn-primary {
+        background-color: #007bff; /* Màu xanh lam đậm hơn */
+        border-color: #007bff; /* Viền cùng màu */
+        color: white; /* Chữ màu trắng */
+        padding: 15px 40px; /* Tăng kích thước nút */
+        font-size: 1.25rem; /* Tăng cỡ chữ */
+        font-weight: bold; /* Chữ in đậm */
+        border-radius: 5px; /* Bo góc nhẹ */
+        text-transform: uppercase; /* Chữ in hoa */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Thêm đổ bóng nhẹ */
+        transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi khi hover */
+    }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Màu xanh lam đậm hơn khi hover */
+            border-color: #0056b3;
+        }
+    /* CSS cho banner */
+    .banner {
+        position: relative; /* Để có thể định vị lớp phủ (overlay) sau này */
+        overflow: hidden; /* Ẩn phần lớp phủ tràn ra ngoài */
+    }
+
+        .banner img {
+            height: 300px;
+            width: 100%; /* Đảm bảo ảnh luôn rộng 100% container */
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out; /* Hiệu ứng zoom nhẹ */
+        }
+
+        .banner:hover img {
+            transform: scale(1.05); /* Phóng to ảnh lên 5% khi hover */
+        }
+
+    .row img {
+        height: 150px;
+        width: 1200px; /* Lưu ý: giá trị này có thể gây ra vấn đề trên màn hình nhỏ hơn */
+        object-fit: cover;
+    }
+
+    .row { /* Tạo một container bao quanh ảnh nếu cần */
+        position: relative;
+        overflow: hidden;
+    }
+
+        .row img {
+            height: auto; /* Để chiều cao tự động theo tỷ lệ */
+            width: 100%; /* Để ảnh rộng tối đa trong container */
+            object-fit: cover;
+            transition: opacity 0.3s ease-in-out; /* Hiệu ứng mờ đi nhẹ */
+        }
+
+        .row:hover img {
+            opacity: 0.8; /* Giảm độ mờ của ảnh xuống 80% khi hover */
+        }
+</style>
