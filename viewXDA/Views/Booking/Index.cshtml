@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Lịch đặt sân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <!-- Tabs chọn ngày -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Chọn Một Ngày</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Chọn Nhiều Ngày</a>
+        </li>
+    </ul>
+
+    <!-- Bộ lọc trạng thái -->
+    <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-dark">Tất cả <span class="badge bg-danger">!</span></button>
+            <button class="btn btn-outline-primary">Đang trống</button>
+            <button class="btn btn-outline-secondary">Chờ nhận sân</button>
+            <button class="btn btn-outline-info">Chờ thanh toán</button>
+            <button class="btn btn-outline-success">Đang hoạt động</button>
+            <button class="btn btn-outline-danger">Quá giờ <span class="badge bg-danger">0</span></button>
+        </div>
+
+        <!-- Nút thao tác -->
+        <div class="btn-group">
+            <button class="btn btn-teal"><i class="bi bi-filter"></i> Filter</button>
+            <button class="btn btn-success">Chọn Sân</button>
+            <button class="btn btn-warning">Điền Thông Tin</button>
+        </div>
+    </div>
+
+    <!-- Danh sách ca đặt -->
+    <h5 class="mt-4">Sân 1</h5>
+    <div class="row">
+        @for (int i = 1; i <= 6; i++)
+        {
+            <div class="col-md-2 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h6>Ca @i</h6>
+                        <p class="mb-1">Loại sân: Sân 5</p>
+                        <p><i class="bi bi-calendar3"></i> 2024-01-11</p>
+                        <p><i class="bi bi-clock"></i> @(i * 3 + 3):00 - @(i * 3 + 5):30</p>
+                        <p><i class="bi bi-currency-dollar"></i> @(i <= 3 ? "450.000 ₫" : "400.000 ₫")</p>
+
+                        @if (i == 6)
+                        {
+                            <span class="badge bg-primary">Đang trống</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Quá giờ đặt</span>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
